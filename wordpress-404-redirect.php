@@ -68,17 +68,15 @@ function wp_404_redirect_page() {
 }
 
 function wp_404_redirect_redirect() {
-    if (get_option('wp_404_redirect_enabled') == '1') {
-        if (is_404()) {
-            $redirect_url = get_option('wp_404_redirect_target');
-            if (!empty($redirect_url)) {
-                $redirect_type = get_option('wp_404_redirect_type', 301);
-                wp_safe_redirect($redirect_url, $redirect_type);
-                exit();
-            }
+    if (get_option('wp_404_redirect_enabled') == '1' && is_404()) {
+        $redirect_url = get_option('wp_404_redirect_target');
+        if (!empty($redirect_url)) {
+            $redirect_type = get_option('wp_404_redirect_type', 301);
+            wp_safe_redirect($redirect_url, $redirect_type);
+            exit();
         }
     }
 }
 
 add_action('admin_menu', 'wp_404_redirect_menu');
-add_action('template_redirect', 'wp_404_redirect_redirect');
+add_action('template_redirect', 'wp_404_redirect_redirect', 1);
