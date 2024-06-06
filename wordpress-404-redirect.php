@@ -6,7 +6,7 @@
  * Author URI: https://infinitnet.io/
  * Plugin URI: https://github.com/infinitnet/wordpress-404-redirect
  * Update URI: https://github.com/infinitnet/wordpress-404-redirect
- * Version: 2.0.0
+ * Version: 2.0.1
  * License: GPLv3
  * Text Domain: wordpress-404-redirect
  */
